@@ -181,5 +181,7 @@ scrape_configs:
 ---
 
 ## **8. Conclusion**
-This DevOps implementation ensures **scalability, automation, and reliability** of ContactKeeper. Further improvements can include **Kubernetes deployment, auto-scaling, and multi-region failover**.
+This DevOps implementation ensures **scalability, automation, and reliability** of ContactKeeper. Further improvements can include **Kubernetes deployment, auto-scaling, and multi-region failover
+Not the final phase, undergoing development 
+**.
 
