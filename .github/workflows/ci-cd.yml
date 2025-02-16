@@ -39,12 +39,12 @@ jobs:
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.AWS_EC2_HOST }}
-          username: ${{ secrets.AWS_EC2_USER }}
-          key: ${{ secrets.AWS_EC2_SSH_KEY }}
+          host: ${{ secrets.AWS_EC2_HOST }}         # Your EC2 Public IP or DDNS
+          username: ${{ secrets.AWS_EC2_USER }}     # e.g., ubuntu, ec2-user
+          key: ${{ secrets.AWS_EC2_SSH_KEY }}       # Your private SSH key
           script: |
             cd /home/${{ secrets.AWS_EC2_USER }}/ContactKeeper
             git pull origin main
             npm install
             npm run build
-            pm2 restart server.js
+            pm2 restart server.js || pm2 start server.js
