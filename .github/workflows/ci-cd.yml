@@ -22,9 +22,12 @@ jobs:
           node-version: '20'
 
       - name: Install Dependencies
+        working-directory: ./frontend
         run: npm install
+        
 
       - name: Run Tests
+        working-directory: ./frontend
         run: npm test
 
   deploy:
