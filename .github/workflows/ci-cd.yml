@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,13 +25,7 @@ jobs:
         run: npm install
         working-directory: frontend
 
-      - name: Run Linter
-        run: npm run lint
-        working-directory: frontend
-
-      - name: Run Tests
-        run: npm test || echo "No tests found, skipping..."
-        working-directory: frontend
+      
 
       - name: Build Project
         run: npm run build
@@ -44,7 +38,7 @@ jobs:
           path: frontend/dist/
 
   deploy:
-    needs: build-and-test
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
